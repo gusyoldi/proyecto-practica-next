@@ -1,0 +1,6 @@
+.gitignore
+.prettier.config.ts
+.prettierignore
+/node_modules
+/next
+
