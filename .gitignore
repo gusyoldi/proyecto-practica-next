@@ -45,3 +45,5 @@ next-env.d.ts
 
 gyoldi_ssh_key
 gyoldi_ssh_key.pub
+
+*storybook.log
