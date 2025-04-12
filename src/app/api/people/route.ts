@@ -1,12 +1,12 @@
+import { fetchPerson } from '@/lib/fetchPerson';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    const response = await fetch('https://swapi.dev/api/people/1');
-    const data = await response.json();
+    const data = await fetchPerson();
     return NextResponse.json(data);
   } catch (error) {
-    console.log(error);
+    console.error('Error fetching data:', error);
     return NextResponse.json({ error: 'Error fetching data' }, { status: 500 });
   }
 }

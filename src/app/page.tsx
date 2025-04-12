@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/Button';
-import { GET } from './api/people/route';
+import { fetchPerson } from '@/lib/fetchPerson';
 
 export default async function Page() {
-  const data = await GET();
+  const data = await fetchPerson();
   console.log(data);
 
   return (
