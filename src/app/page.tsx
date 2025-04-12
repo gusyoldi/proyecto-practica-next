@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/Button';
-import { GET } from './api/route';
+import { GET } from './api/people/route';
 
 export default async function Page() {
   const data = await GET();
