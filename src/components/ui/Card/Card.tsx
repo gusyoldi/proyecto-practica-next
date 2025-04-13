@@ -1,14 +1,27 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '.';
+import { Film } from '@/lib/schemas';
+import Image from 'next/image';
+import { Card, CardContent, CardHeader, CardTitle } from '.';
 
-export const MovieCard = () => {
+interface FilmCardProps {
+  film: Film;
+  imageUrl?: string;
+}
+
+export const FilmCard = ({ film, imageUrl }: FilmCardProps) => {
   return (
     <Card>
+      <CardHeader>
+        {imageUrl && (
+          <div className="relative h-48 w-full mb-4">
+            <Image src={imageUrl} alt={film.title} fill className="object-cover rounded" />
+          </div>
+        )}
+        <CardTitle>{film.title}</CardTitle>
+      </CardHeader>
       <CardContent>
-        <CardHeader>
-          <CardTitle>Title</CardTitle>
-        </CardHeader>
-
-        <CardDescription>Descripcion</CardDescription>
+        <p className="text-sm text-muted-foreground">
+          Dirigida por {film.director}, estrenada el {film.release_date}
+        </p>
       </CardContent>
     </Card>
   );

@@ -1,10 +1,7 @@
 'use client';
 
-interface Film {
-  title: string;
-  director: string;
-  release_date: string;
-}
+import { FilmCard } from '@/components/ui/Card/Card';
+import { Film } from '@/lib/schemas';
 
 interface FilmsProps {
   films: Film[];
@@ -13,13 +10,9 @@ interface FilmsProps {
 const Films = ({ films }: FilmsProps) => {
   console.log(films);
   return (
-    <div>
-      {films.map((film, index) => (
-        <div key={index} className="mb-4 p-4 border rounded shadow">
-          <h2 className="text-xl font-bold">{film.title}</h2>
-          <p>Director: {film.director}</p>
-          <p>Fecha de estreno: {film.release_date}</p>
-        </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {films.map(film => (
+        <FilmCard key={film.episode_id} film={film} />
       ))}
     </div>
   );
