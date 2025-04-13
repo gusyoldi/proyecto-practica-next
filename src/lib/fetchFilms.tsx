@@ -1,9 +1,15 @@
+import { filmsResponseSchema } from './schemas';
+
 export const fetchFilms = async () => {
   const response = await fetch('https://swapi.dev/api/films');
-  if (!response.ok) {
-    throw new Error('Failed to fetch data');
+  const data = await response.json();
+
+  const parsedData = filmsResponseSchema.safeParse(data);
+
+  if (!parsedData.success) {
+    console.error('Error de validación con Zod:', parsedData.error);
+    throw new Error('Datos inválidos de la API');
   }
 
-  const data = await response.json();
-  return data.results;
+  return parsedData.data.results;
 };
