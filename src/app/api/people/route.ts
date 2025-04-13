@@ -1,4 +1,4 @@
-import { fetchFilms } from '@/lib/fetchFilms';
+import { fetchFilms } from '@/lib/services/fetchFilms';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
