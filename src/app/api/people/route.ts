@@ -1,9 +1,9 @@
-import { fetchPerson } from '@/lib/fetchPerson';
+import { fetchFilms } from '@/lib/fetchFilms';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    const data = await fetchPerson();
+    const data = await fetchFilms();
     return NextResponse.json(data);
   } catch (error) {
     console.error('Error fetching data:', error);
