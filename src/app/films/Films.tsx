@@ -1,7 +1,7 @@
 'use client';
 
-import { FilmCard } from '@/components/ui/Card/FilmCard';
 import { useFilms } from '@/lib/hooks/useFilms';
+import { FilmCard } from './components/FilmCard';
 
 const Films = () => {
   const { films, isLoading, error } = useFilms();
