@@ -1,4 +1,4 @@
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
 import { Film } from '@/lib/schemas';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,11 +19,13 @@ export const FilmCard = ({ film, imageUrl }: FilmCardProps) => {
         )}
       </CardContent>
       <CardFooter>
-        <Link href={`/films/${film.episode_id}`} style={{ color: 'red' }}>
-          <span className="text-red-600 hover:underline cursor-pointer">
-            Star Wars: {film.title}
-          </span>
-        </Link>
+        <CardTitle>
+          <Link href={`/films/${film.episode_id}`} style={{ color: 'red' }}>
+            <span className="text-red-600 hover:underline cursor-pointer">
+              Star Wars: {film.title}
+            </span>
+          </Link>
+        </CardTitle>
       </CardFooter>
     </Card>
   );
