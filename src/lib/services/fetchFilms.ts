@@ -1,8 +1,8 @@
-import { filmsResponseSchema } from '../schemas';
+import { Film, filmsResponseSchema } from '../schemas';
 
-export const fetchFilms = async () => {
-  const response = await fetch('https://swapi.dev/api/films');
-  const data = await response.json();
+export const fetchFilms = async (): Promise<Film[]> => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/films`);
+  const data: Film[] = await response.json();
 
   const parsedData = filmsResponseSchema.safeParse(data);
 

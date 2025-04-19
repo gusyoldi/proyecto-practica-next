@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default async function Page({ params }: Props) {
-  const film = await fetchFilmById(Number(params.id));
+  const film = await fetchFilmById(params.id);
   if (!film) return notFound();
 
   return <FilmDetail film={film} />;
