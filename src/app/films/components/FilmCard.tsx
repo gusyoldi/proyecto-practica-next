@@ -1,4 +1,4 @@
-import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Film } from '@/lib/schemas';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,25 +8,25 @@ interface FilmCardProps {
   imageUrl?: string;
 }
 
-export const FilmCard = ({ film, imageUrl }: FilmCardProps) => {
+export const FilmCard = ({ film }: FilmCardProps) => {
+  const imageUrl = `/images/films/film-${film.episode_id}.webp`;
+
   return (
-    <Card>
-      <CardContent>
+    <Card className="w-full max-w-sm pt-0">
+      <Link href={`/films/${film.episode_id}`} className="flex flex-col gap-4 ">
         {imageUrl && (
-          <div className="relative h-48 w-full mb-4">
-            <Image src={imageUrl} alt={film.title} fill className="object-cover rounded" />
-          </div>
+          <CardContent className="px-0">
+            <div className="relative h-[400px] w-full overflow-hidden rounded-t-xl cursor-pointer">
+              <Image src={imageUrl} alt={film.title} fill className="object-cover rounded" />
+            </div>
+          </CardContent>
         )}
-      </CardContent>
-      <CardFooter>
-        <CardTitle>
-          <Link href={`/films/${film.episode_id}`} style={{ color: 'red' }}>
-            <span className="text-red-600 hover:underline cursor-pointer">
-              Star Wars: {film.title}
-            </span>
-          </Link>
-        </CardTitle>
-      </CardFooter>
+        <CardHeader>
+          <CardTitle className="text-lg font-semibold">
+            <h3 className="text-primary hover:underline">Star Wars: {film.title}</h3>
+          </CardTitle>
+        </CardHeader>
+      </Link>
     </Card>
   );
 };
