@@ -41,9 +41,9 @@ yarn-error.log*
 next-env.d.ts
 
 
-
+storybook-static
 
 gyoldi_ssh_key
 gyoldi_ssh_key.pub
-
+src/stories
 *storybook.log
