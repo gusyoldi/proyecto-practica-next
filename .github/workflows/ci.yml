@@ -19,11 +19,11 @@ jobs:
         with:
           node-version: 18
 
-      - name: Configurar pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9.7.0
-          cache: true
+      - name: Instalar pnpm
+        run: npm install -g pnpm
+
+      - name: Verificar pnpm
+        run: pnpm --version
 
       - name: Instalar dependencias
         run: pnpm install
