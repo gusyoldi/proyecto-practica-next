@@ -19,17 +19,11 @@ jobs:
         with:
           node-version: 18
 
-      - name: Instalar pnpm
-        run: npm install -g pnpm
-
-      - name: Verificar pnpm
-        run: pnpm --version
-
       - name: Instalar dependencias
-        run: pnpm install
+        run: npm install
 
       - name: Compilar proyecto
-        run: pnpm build
+        run: npm run build
 
       - name: Ejecutar tests
-        run: pnpm test
+        run: npm test
